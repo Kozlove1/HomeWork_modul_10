@@ -1,9 +1,6 @@
 function revStr (str) {
-    let splStr = str.split('');
-    let arrStr = splStr.reverse();
-    return arrStr.join('');
+    return str.split('').reverse().join('');
 }
 console.log(revStr('Hello'))
 
-
-
+// Решение верное, единственное что можно было записать чуть короче. Выше в коде показала, как

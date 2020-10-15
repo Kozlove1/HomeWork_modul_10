@@ -1,18 +1,24 @@
-
-const numb =[1, 2, 3, 4, 5, 6, 7, 8, 9];
+const numb = [1, 2, 3, 4, "5", "str", null, undefined, NaN, true, false, 0];
 
 let Chet = 0;
 let neChet = 0;
+let zero = 0;
 
-    for (let i = 0; i < numb.length; i++) {
-        if (numb[i] % 2 === 0) {
-            Chet++;
-        } else {
-            neChet++;
-        }
+for (let i = 0; i < numb.length; i++) {
+  if (typeof numb[i] === "number" && !isNaN(numb[i])) {
+    if (numb[i] === 0) {
+      zero++;
+    } else if (numb[i] % 2 === 0) {
+        Chet++;
+    } else {
+        neChet++;
     }
-    console.log("Chet : " + Chet);
-    console.log("neChet : " + neChet);
+  }
+}
+
+console.log("Chet : " + Chet);
+console.log("neChet : " + neChet);
+console.log("Zero: " + zero);
 
 
     /*Код немного подсмотрел, но только не много, дальше все сам, но вот не могу понять как добавить проверку на null и остальное.
@@ -25,3 +31,7 @@ let neChet = 0;
 
          В дальнейшем разберусь.
      */
+
+// 0 добавлялся в графу четные, потому что для нуля выполняется условие numb[i] % 2 === 0 и поэтому мы остаемся в этой ветке и до проверки равенства нулю просто не доходим. Поэтому это условие должно стоять первым.
+// Также в задании было отмечено, что массив может содержать любые элементы: строки, null, undefined, true, false и так далее. Поэтому в первую очередь нам нужно отсеять всё, что не является числами (с помощью typeof и isNaN). 
+// Выше исправила
